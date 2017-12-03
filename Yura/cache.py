@@ -1,5 +1,6 @@
 class Cache:
-    def __init__(self, endpointslst, capacity):
-        # endpointslst - list of id of adjacent endpoint
-        # capacity - int
-        pass
+    def __init__(self ,capacity):
+        self.capacity = capacity
+        self.endpointsids = [] # id
+        self.taken = set()
+        self.needs = [{} for _ in range(10000)]
