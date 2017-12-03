@@ -3,7 +3,7 @@ from Yura.cache import Cache
 
 V, E, R, C, X = map(int, input().split())
 
-videos = list(map(int,input().split()))
+videos = list(map(int, input().split()))
 endpoints = [Endpoint() for _ in range(E)]
 caches = [Cache(X) for _ in range(C)]
 
@@ -17,7 +17,10 @@ for i in range(E):
 
 for i in range(R):
     videoid, endpointid, number = map(int, input().split())
-    endpoints[endpointid].requests.append((endpointid, number))
+    endpoints[endpointid].id = endpointid
+    endpoints[endpointid].requests.append((videoid, number))
+for i in endpoints:
+    print(i)
 """
 for e in endpoints:
     for c in e.cachesdistance:
