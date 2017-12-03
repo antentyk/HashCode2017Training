@@ -14,7 +14,7 @@ def read_input():
         endpoints[i].datacenterdistance = l
         for j in range(k):
             cacheid, l = map(int, input().split())
-            endpoints[i].cachesdistance.append((cacheid, l))
+            endpoints[i].cachesdistance[cacheid] = l
             caches[cacheid].endpointsids.append(i)
             caches[cacheid].id = cacheid
 
@@ -24,7 +24,7 @@ def read_input():
         endpoints[endpointid].requests.append((videoid, number))
     # for i in endpoints:
     #     print(i)
-    # for i in caches:
+    # for i in caches:, 100), (2, 200), (1, 300
     #     print(i)
     return endpoints, caches
 
@@ -35,4 +35,15 @@ for e in endpoints:
         cacheid, distance = c[0], c[1]
         caches[cacheid].
 """
-read_input()
+endpoints, caches = read_input()
+for cache in caches:
+    for endp_id in cache.endpointsids:
+        endpoint = endpoints[endp_id]
+        dist = max(0, endpoint.datacenterdistance - endpoint.cachesdistance[cache.id])
+        for request in endpoint.requests:
+            if dist in cache.needs[request[0]]:
+                cache.needs[request[0]][dist] += request[1]
+            else:
+                cache.needs[request[0]][dist] = request[1]
+for i in caches:
+    print(i)

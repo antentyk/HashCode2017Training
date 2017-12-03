@@ -2,7 +2,7 @@ class Endpoint:
     def __init__(self):
         self.id = -1
         self.datacenterdistance = -1
-        self.cachesdistance = []  # cacheid, int
+        self.cachesdistance = [9999999999] * 1000  # cacheid - int
         self.requests = []  # videoid, int
 
     def __str__(self):
