@@ -1,4 +1,5 @@
 import random
+import math
 
 print("Reading")
 
@@ -63,15 +64,16 @@ def find_server(serveriid):
 
 def fill_server(serveriid):
     # implementing of  particular metrics
-    # now it will be num of requests of video
     server = find_server(serveriid)
     for item in server.endpoints:
         endpointid = item[0]
+        delay = item[1]
         endpoint = endpoitslst[endpointid]
         for item in endpoint.requests:
             videoid = item[0]
             quantity = item[1]
-            server.candidates[videoid] = server.candidates.get(videoid, 0) + quantity
+            server.candidates[videoid] = server.candidates.get(videoid, 0) + \
+                                         (quantity * (videoslst[videoid].capacity)**0.5)
 
 def server_criteria(server):
     # criteria to sort servers
