@@ -1,5 +1,9 @@
 # sorting requests by magic formula
 
+# ----------------------
+# total score: 2 595 896
+# ----------------------
+
 import random
 import math
 
