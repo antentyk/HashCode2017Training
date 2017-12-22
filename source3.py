@@ -78,7 +78,7 @@ def request_criteria(r):
     endpointiid, videoiid, quantity = r
     video = videoslst[videoiid]
     endpoint = endpoitslst[endpointiid]
-    return (quantity * endpoint.datacenterdelay) / (video.capacity ** (golden / 24))
+    return (quantity * endpoint.datacenterdelay ** 10) / (video.capacity ** (golden / 24))
 
 
 def take_video_smart(endpointiid, videoiid, quantity):
